@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
     <title>Hello ${name}!</title>
     <meta charset="utf-8">
@@ -50,94 +51,41 @@
         </div>
     </nav>
 
- <div class="row justify-content-center">
-     <div class="col-md-3">
-         <div class="card">
-
-             <!-- Card image -->
-             <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-
-             <!-- Card content -->
-             <div class="card-body">
-
-                 <!-- Title -->
-                 <h4 class="card-title"><a>Card title</a></h4>
-                 <!-- Text -->
-                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 <!-- Button -->
-                 <a href="#" class="btn btn-primary">Button</a>
-
-             </div>
-
-         </div>
-     </div>
-     <div class="col-md-3">
-         <div class="card">
-
-             <!-- Card image -->
-             <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-
-             <!-- Card content -->
-             <div class="card-body">
-
-                 <!-- Title -->
-                 <h4 class="card-title"><a>Card title</a></h4>
-                 <!-- Text -->
-                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 <!-- Button -->
-                 <a href="#" class="btn btn-primary">Button</a>
-
-             </div>
-
-         </div>
-     </div>
-     <div class="col-md-3">
-         <div class="card">
-
-             <!-- Card image -->
-             <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-
-             <!-- Card content -->
-             <div class="card-body">
-
-                 <!-- Title -->
-                 <h4 class="card-title"><a>Card title</a></h4>
-                 <!-- Text -->
-                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 <!-- Button -->
-                 <a href="#" class="btn btn-primary">Button</a>
-
-             </div>
-
-         </div>
-     </div>
-     <div class="col-md-3">
-         <div class="card">
-
-             <!-- Card image -->
-             <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-
-             <!-- Card content -->
-             <div class="card-body">
-
-                 <!-- Title -->
-                 <h4 class="card-title"><a>Card title</a></h4>
-                 <!-- Text -->
-                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 <!-- Button -->
-                 <a href="#" class="btn btn-primary">Button</a>
-
-             </div>
-
-         </div>
-     </div>
-
-
- </div>
-
 </header>
 <!--Main Navigation-->
+<div class="row justify-content-center">
 
+    <c:forEach var="song" items="${songList}">
+
+        <div class="col-md-3">
+            <div class="card">
+
+                <!-- Card image -->
+                <img class="card-img-top" src="${song.image_file_url}" alt="Card image cap">
+
+                <!-- Card content -->
+                <div class="card-body">
+
+                    <!-- Title -->
+                    <h4 class="card-title"><a>${song.name}</a></h4>
+                    <!-- Text -->
+                    <p class="card-text">A Song by artist ${song.artist}.</p>
+                    <p class="card-text">Song Genre ${song.genre}.</p>
+                    <p class="card-text">Song Year ${song.year}.</p>
+                    <p class="card-text">File Size${song.size}.</p>
+
+                    <!-- Button -->
+                    <a href="${song.download_url}" class="btn btn-primary">Button</a>
+
+                </div>
+
+            </div>
+        </div>
+    </c:forEach>
+
+
+
+</div>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="js/popper.min.js"></script>

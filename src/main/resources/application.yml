@@ -10,10 +10,24 @@ spring:
             provider: google
             scope: profile
             redirect-uri: http://localhost:8080/login/oauth2/code/google
-
+  datasource:
+    url: jdbc:mysql://localhost/musicstore
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
   mvc:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
 server:
   port: 8080
+file:
+  upload-dir: storage

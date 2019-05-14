@@ -1,5 +1,7 @@
 package com.oop.onlinemusicstore.controller;
 
+import com.oop.onlinemusicstore.repository.SongRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,9 @@ import java.util.LinkedHashMap;
 
 @Controller
 public class UIcontroller {
+    @Autowired
+    private SongRepository songRepository;
+
     @GetMapping({"/"})
     public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
         model.addAttribute("name", name);
@@ -25,6 +30,9 @@ public class UIcontroller {
 //        LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>)principal.getPrincipal();
 //        System.out.println(properties.get("name"));
         model.addAttribute("user_name", principal.getPrincipal());
+        model.addAttribute("songList",songRepository.findAll());
+        System.out.println(songRepository.findAll());
+
         return "main";
     }
 }
