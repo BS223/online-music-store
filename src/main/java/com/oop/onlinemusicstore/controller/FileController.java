@@ -34,8 +34,10 @@ public class FileController {
     private SongRepository songRepository;
 
     @PostMapping("/file/uploadFile")
-    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("songImage") MultipartFile songImage,@RequestParam(value = "filename", required = false)String filename
+    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("songImage") MultipartFile songImage,
+                                         @RequestParam(value = "filename", required = false)String filename
                                         ,@RequestParam("artist") String artist, @RequestParam("genre") String genre, @RequestParam("year") String year) {
+
         String fileName = fileStorageService.storeFile(file,filename);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()

@@ -35,4 +35,15 @@ public class UIcontroller {
 
         return "main";
     }
+
+    @GetMapping("/admin")
+    public String getAdminPage(){
+        return "admin";
+    }
+
+    @GetMapping("/insert")
+    public String getInsertPage(){
+        return "insert";
+    }
+
 }

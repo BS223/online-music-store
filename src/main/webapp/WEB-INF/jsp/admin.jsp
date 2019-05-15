@@ -38,54 +38,25 @@
                 </li>
             </ul>
             <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-tag"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                         aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="/insert">Insert <i class="fas fa-plus"></i></a>
+                        <%--<a class="dropdown-item" href="New Text Document3.html">Update <i class="fas fa-edit"></i></a>--%>
+                        <%--<a class="dropdown-item" href="New Text Document2.html">Delete <i class="fas fa-trash-alt"></i></a>--%>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fab fa-instagram"></i></a>
-                </li>
-            </ul>
+            </ul>y
         </div>
     </nav>
 
 </header>
 <!--Main Navigation-->
-<div class="row justify-content-center">
 
-    <c:forEach var="song" items="${songList}">
-
-        <div class="col-md-3">
-            <div class="card">
-
-                <!-- Card image -->
-                <img class="card-img-top" src="${song.image_file_url}" alt="Card image cap">
-
-                <!-- Card content -->
-                <div class="card-body">
-
-                    <!-- Title -->
-                    <h4 class="card-title"><a>${song.name}</a></h4>
-                    <!-- Text -->
-                    <p class="card-text">A Song by artist ${song.artist}.</p>
-                    <p class="card-text">Song Genre ${song.genre}.</p>
-                    <p class="card-text">Song Year ${song.year}.</p>
-                    <p class="card-text">File Size${song.size}.</p>
-
-                    <!-- Button -->
-                    <a href="${song.download_url}" class="btn btn-primary">Click To Download </a>
-
-                </div>
-
-            </div>
-        </div>
-    </c:forEach>
-
-
-
-</div>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="js/popper.min.js"></script>
